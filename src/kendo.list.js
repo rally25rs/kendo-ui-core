@@ -82,8 +82,7 @@ var __meta__ = {
             }
 
             that._header();
-            that._text = kendo.getter(this.options.dataTextField);
-            that._value = kendo.getter(this.options.dataValueField);
+            that._accessors();
             that._initValue();
         },
 
@@ -247,6 +246,11 @@ var __meta__ = {
             }
 
             return that._data()[index];
+        },
+
+        _accessors: function() {
+            this._text = kendo.getter(this.options.dataTextField);
+            this._value = kendo.getter(this.options.dataValueField);
         },
 
         _aria: function(id) {
