@@ -90,7 +90,9 @@
                 if (widgetEvents.indexOf(eventKey) > -1) {
                     options[eventKey] = value;
                 }
-            } else if (widgetOptions.hasOwnProperty(dataName)) {
+            } // don't elsif here - there are on* options
+
+            if (widgetOptions.hasOwnProperty(dataName)) {
                 addOption(scope, options, dataName, value);
             } else if (widgetOptions.hasOwnProperty(name)) {
                 addOption(scope, options, name, value);

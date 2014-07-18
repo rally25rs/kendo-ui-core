@@ -137,6 +137,15 @@
         });
     });
 
+    runTest("handle unprefixed on- options", function(dom){
+        var theSwitch = $("<div kendo-mobileswitch on-label='onLabel'></div>").appendTo(dom);
+        $scope.onLabel = "ONE"
+        $scope.$on("kendoRendered", function(){
+            equal(theSwitch.data("kendoMobileSwitch").options.onLabel, "ONE");
+            start();
+        });
+    });
+
     runTest("handle widget data* options", function(dom){
         var ddl = $("<select kendo-dropdownlist data-source='foo' data-text-field='\"bar\"' data-value-field='\"foo\"'></select>").appendTo(dom);
         expect(3);
