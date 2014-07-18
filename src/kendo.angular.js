@@ -64,7 +64,7 @@
 
     function createWidget(scope, element, attrs, widget, origAttr) {
         var role = widget.replace(/^kendo/, '');
-        var options = angular.extend({}, scope.$eval(attrs.kOptions));
+        var options = angular.extend({}, scope.$eval(attrs.kOptions || attrs.options));
         var ctor = $(element)[widget];
 
         if (!ctor) {

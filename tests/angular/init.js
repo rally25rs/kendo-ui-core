@@ -128,6 +128,15 @@
         });
     });
 
+    runTest("handle unprefixed options", function(dom){
+        var w = $("<div kendo-window options='windowOptions'></div>").appendTo(dom);
+        expect(1);
+        $scope.$on("kendoRendered", function(){
+            equal(w.data("kendoWindow").title(), $scope.windowOptions.title);
+            start();
+        });
+    });
+
     runTest("handle widget data* options", function(dom){
         var ddl = $("<select kendo-dropdownlist data-source='foo' data-text-field='\"bar\"' data-value-field='\"foo\"'></select>").appendTo(dom);
         expect(3);
