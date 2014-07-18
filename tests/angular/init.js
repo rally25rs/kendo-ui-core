@@ -128,6 +128,22 @@
         });
     });
 
+    runTest("handle widget data* options", function(dom){
+        var ddl = $("<select kendo-dropdownlist data-source='foo' data-text-field='\"bar\"' data-value-field='\"foo\"'></select>").appendTo(dom);
+        expect(3);
+
+        $scope.foo = [
+            { foo: "value", bar: "text" }
+        ];
+
+        $scope.$on("kendoRendered", function(){
+            equal(ddl.find('option').attr("value"), "value");
+            equal(ddl.find('option').text(), "text");
+            equal(ddl.data('kendoDropDownList').options.dataValueField, 'foo');
+            start();
+        });
+    });
+
     /* -----[ support for {{angular}} expressions in customizable templates ]----- */
 
     runTest("AutoComplete templates", function(dom){
